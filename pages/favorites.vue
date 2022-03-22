@@ -17,12 +17,11 @@
             <p class="mt-2 text-sm">Published: {{libro.first_publish_year}}</p>
           </div>
         </div>
-        
-        
+        <div class="ml-10">
+          <button @click="deleteBooks(libro.key)" class="px-2 py-1 mt-4 text-white rounded-sm bg-primary hover:bg-blue-900">Delete</button>
+        </div>
       </div>
     </div>
-    
-    
     <Footer />
   </div>
 </template>
@@ -33,6 +32,12 @@ import Footer from "../components/comunes/Footer.vue";
 export default {
   name: "Favorites",
   components: { Header, Footer },
+  methods: {
+    deleteBooks(id) {
+      this.$store.commit("deleteLibro", id);
+      console.log(id)
+    }
+  },
 }
 </script>
 

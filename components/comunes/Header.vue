@@ -19,13 +19,15 @@
         <img class="h-8" src="~/assets/img/books.svg" alt="" />
         <LinksResponsive title="Books" to="/books" />
       </nuxt-link>
-      
+
       <nuxt-link to="#" class="flex items-center px-4 py-2">
         <img class="h-8" src="~/assets/img/favorite.svg" alt="" />
-        <LinksResponsive title="Favorites" to="/favorites" />
+        <div class="px-4 py-2 text-lg">
+          <nuxt-link to="/favorites">
+            favorites
+          </nuxt-link>
+        </div>
       </nuxt-link>
-      
-      
     </div>
 
     <!-- Header full Screen -->
@@ -33,7 +35,7 @@
       <nuxt-link to="/">
         <img class="h-20" src="~/assets/img/logo.png" alt="" />
       </nuxt-link>
-      
+
       <div class="hidden space-x-4 md:flex md:items-center">
         <div class="flex items-center px-2 rounded">
           <img class="h-8" src="~/assets/img/resources.svg" alt="" />
@@ -45,9 +47,19 @@
         </div>
         <div class="flex items-center">
           <img class="h-8" src="~/assets/img/favorite.svg" alt="" />
-          <LinksHome title="Favorites" to="/favorites" />
+          <div class="px-4 py-1 rounded lg:text-lg">
+            <nuxt-link to="/favorites">
+              <div class="flex items-center space-x-2">
+                <p>Favorites</p>
+                <span
+                  class="p-2 text-lg font-semibold text-primary border-primary"
+                  v-if="!this.$store.state.favoritos.length == 0"
+                  >{{ this.$store.state.favoritos.length }}</span
+                >
+              </div>
+            </nuxt-link>
+          </div>
         </div>
-        
       </div>
     </div>
   </div>

@@ -5,8 +5,17 @@
       Books
     </h1>
 
+    <!-- spinner -->
+    <div v-if="this.$store.state.libros.length == 0" class="relative">
+      <div class="relative flex items-center justify-center top-20 spinner">
+        <div
+          class="border-b-2 rounded-full border-primary animate-spin h-96 w-96"
+        ></div>
+      </div>
+    </div>
+
+    <!-- books -->
     <div class="flex flex-wrap justify-center mb-20">
-      <p v-if="this.$store.state.libros.length == 0">cargando ......</p>
       <div
         v-for="libro in this.$store.state.libros"
         :key="libro.key"
@@ -29,13 +38,13 @@
         </div>
         <button
           @click="recibirData(libro)"
-          class="px-2 py-1 mt-4 text-white rounded-sm bg-primary"
+          class="px-2 py-1 mt-4 text-white rounded-sm bg-primary hover:bg-blue-900"
         >
           See details
         </button>
         <button
           @click="enviarFavorito(libro)"
-          class="px-2 py-1 mt-4 text-white rounded-sm bg-primary"
+          class="px-2 py-1 mt-4 text-white rounded-sm bg-primary hover:bg-blue-900"
         >
           Add to Favorites
         </button>
@@ -44,7 +53,6 @@
     <div class="fixed top-0" v-if="detalles">
       <BooksDetails @click="handleClick" :data="dataDetails"></BooksDetails>
     </div>
-
     <Footer />
   </div>
 </template>
@@ -84,4 +92,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+</style>

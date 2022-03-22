@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 py-1 lg:text-lg rounded " :class="fondo">
+  <div class="px-4 py-1 rounded lg:text-lg ">
     <nuxt-link :to="to">
       <div class="flex items-center space-x-2 ">
         <p>{{title}}</p>
